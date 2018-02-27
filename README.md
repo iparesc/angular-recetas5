@@ -1,3 +1,3 @@
 # Angular Recetas
 
-Proyecto para aprender angular
+Proyecto para aprender angular nuevo
