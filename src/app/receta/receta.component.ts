@@ -12,13 +12,18 @@ likes:number;
 descripcion:string;
 imagen_gluten:string;
 isGlutenFree:boolean;
+cocinero:string;
+ingredientes:string[];
+
   constructor() {
     this.nombre='Bokata de Kalamares';
     this.foto='http://cd00.epimg.net/cincodias/imagenes/2016/10/26/empresas/1477481793_763924_1477496457_noticia_normal.jpg';
     this.likes= 25;
     this.descripcion='Bocata Madrileño';
     this.imagen_gluten='';
-    this.isGlutenFree=false;
+    this.isGlutenFree= false;
+    this.cocinero='Karlo';
+    this.ingredientes=['calamares','mayonesa','pan'];
    }
 
   ngOnInit() {

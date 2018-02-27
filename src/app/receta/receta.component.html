@@ -8,8 +8,17 @@
 
         <p>{{descripcion|slice:0:100}}</p>
 
-        <span class="label label-primary" (click)= "sumarLike()">likes{{likes}}</span>
         
+        <span class="cocinero">{{cocinero}}</span>
+        <span class="label label-primary" (click)= "sumarLike()">likes{{likes}}</span>
+        <div class="container">
+            <h2>Ingredientes</h2>
+            <ul class="list-group">
+              <li class="list-group-item">{{ingredientes[0]}}</li>
+              <li class="list-group-item">{{ingredientes[1]}}</li>
+              <li class="list-group-item">{{ingredientes[2]}}</li>
+            </ul>
+          </div>
         
       </div>
     </div>
