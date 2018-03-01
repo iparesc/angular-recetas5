@@ -2,25 +2,32 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
         <img class="gluten" src="assets/img/gluten_free_icon.png" alt="">
-      <img src="{{foto}}" alt="...">
+        <img src="{{receta.foto}}" alt="{{receta.nombre}}">
       <div class="caption">
-        <h3>{{nombre|uppercase}}</h3>
+        <h3>{{receta.nombre|uppercase}}</h3>
+        
 
-        <p>{{descripcion|slice:0:100}}</p>
+        <p>{{receta.descripcion|slice:0:100}}</p>
 
         
-        <span class="cocinero">{{cocinero}}</span>
-        <span class="label label-primary" (click)= "sumarLike()">likes{{likes}}</span>
-        <div class="container">
-            <h2>Ingredientes</h2>
-            <ul class="list-group">
-              <li class="list-group-item">{{ingredientes[0]}}</li>
-              <li class="list-group-item">{{ingredientes[1]}}</li>
-              <li class="list-group-item">{{ingredientes[2]}}</li>
-            </ul>
-          </div>
+        <span class="cocinero">{{receta.cocinero}}</span>
+        <span class="label label-primary" (click)= "sumarLike()">likes{{receta.likes}}</span>
+        
         
       </div>
     </div>
+    <section class="ingredientes">
+      <h4 (click)="showIngredientes()">
+        <span class="badge">{{receta.ingredientes.length}}</span>  Ingredientes
+        <span class="glyphicon {{glyphicon}}" aria-hidden="true"></span>  
+      </h4>
+      <ol *ngIf="show" class="lista">
+        <li *ngFor="let ingred of receta.ingredientes">
+          {{ingred}}
+        </li>
+
+      </ol>
+    </section>
   </div>
+
 </div>
