@@ -12,10 +12,10 @@
     constructor(nombre:string,cocinero:string='anonimo'){
         console.log('Receta Constructor');
         this.nombre= nombre;
-        this.foto= 'assets/img/receta_default.jpg';
+        this.foto= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTCSOhTADTYOEgbzGXIq_HWOZH3dtLTvpxOdjEfvY0uCuuHcMD';
         this.likes=0;
         this.cocinero=cocinero;
-        this.descripcion='lorem ipsum dolor'
+        this.descripcion='Plato típico vasco';
         this.isGlutenFree=false;
         this.ingredientes=[];
      

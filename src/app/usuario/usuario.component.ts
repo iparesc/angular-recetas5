@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Usuario} from '../model/usuario';
+import {Sexo} from '../model/usuario';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss']
 })
 export class UsuarioComponent implements OnInit {
-
-  constructor() { }
+usuario:Usuario;
+  constructor() { 
+    this.usuario= new Usuario('Homer')
+    this.usuario.apellido='Simpson';
+  }
 
   ngOnInit() {
   }

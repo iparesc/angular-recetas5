@@ -24,7 +24,7 @@ glyphicon:string;
   ngOnInit() {
   }
 sumarLike(){
-  this.receta.likes=this.receta.likes++;
+  this.receta.likes++;
 }
 showIngredientes(){
   console.log('click ingredientes');
