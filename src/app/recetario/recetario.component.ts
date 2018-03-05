@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter  } from '@angular/core';
+import { Recetario } from '../model/recetario';
+import { RecetasService } from '../providers/recetas.service';
 
 @Component({
   selector: 'app-recetario',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecetarioComponent implements OnInit {
 
-  constructor() { }
+  
+  stock : Array<Recetario>;
+  receta1 : Recetario;
+  constructor( public recetasService:RecetasService ) {
 
-  ngOnInit() {
+    console.log('RecetarioComponent constructor');     
+
+    this.receta1 = new Recetario('receta1','',4,5,'');
+
+    this.stock = new Array<Recetario>();
+
+    
+
   }
+
+  //llamadas a los Services
+  ngOnInit() {
+    console.log('RecetarioComponent ngOnInit');    
+    this.stock = this.recetasService.getAll();   
+
+  }
+
+  
 
 }

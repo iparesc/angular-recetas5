@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Recetario } from '../../model/recetario';
 
 @Component({
   selector: 'app-recetadetalle',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecetadetalleComponent implements OnInit {
 
-  constructor() { }
+ //Parametro de Entrada desde el Componete Padre al Hijo
+ @Input('receta1') receta1 : Recetario; // receta para mostrar
+ constructor() {
+   console.log('CocheComponent constructor');
+ }
 
-  ngOnInit() {
-  }
+ ngOnInit() {
+   console.log('CocheComponent ngOnInit');
+ }
+
 
 }

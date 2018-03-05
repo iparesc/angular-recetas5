@@ -19,7 +19,7 @@ export class Coche{
         if ( foto ){
             this.foto = foto;
         }else{
-            this.foto = 'assets/imgs/coche_default.jpg';
+            this.foto = '';
         }    
         this.puertas = puertas;
         this.caballos = caballos;
