@@ -1,12 +1,18 @@
-<div class="col-sm-6 col-md-4" 
-(click)="seleccionar($event)">
+<div class="col-sm-6 col-md-4" >
 
 <div class="thumbnail">
-   <img src="{{c1.foto}}" alt="foto {{c1.marca}} {{c1.modelo}}">
+   <img src="{{receta1.foto}}" alt="">
    <div class="caption">
        <h3>{{receta1.nombre}}</h3>
-       
-    
+            <p>{{receta1.descripcion}}</p>    
+            <hr>
+            <p>Calorias: {{receta1.calorias}}
+                
+            </p>  
+            <p>Likes: {{receta1.likes}}</p>
+            
+        
+         
    </div>
 </div>
 </div>

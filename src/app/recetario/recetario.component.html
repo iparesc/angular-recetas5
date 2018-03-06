@@ -9,10 +9,11 @@
               
                 <ul class="list-group">
                     <li *ngFor="let receta of stock" [class.active]="receta == receta1">
-                        <a>{{receta.nombre}}</a>
-                    </li>>    
+                        <a [class.active]="receta==receta1" (click)="seleccionar($event, receta)">{{receta.nombre}}</a>
+                    </li>    
                   </ul>
                  
+                  
               
       </div>
   </div>   
@@ -25,12 +26,16 @@
           </div>
           <div class="input-group">
               <span class="input-group-addon" id="sizing-addon2"></span>
-              <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+              <input type="text" class="form-control" placeholder="Buscar Receta" aria-describedby="sizing-addon2">
             </div>
             
           <div class="panel-body">
-              
               <!-- llamda componente Hijo -->
+            <app-recetadetalle [receta1]="receta1"></app-recetadetalle>   
+                
+                
+               
+        
               
           </div>
       </div>

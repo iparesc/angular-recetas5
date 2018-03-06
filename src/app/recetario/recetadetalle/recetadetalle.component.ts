@@ -10,12 +10,13 @@ export class RecetadetalleComponent implements OnInit {
 
  //Parametro de Entrada desde el Componete Padre al Hijo
  @Input('receta1') receta1 : Recetario; // receta para mostrar
+ 
  constructor() {
-   console.log('CocheComponent constructor');
+   console.log('RecetarioComponent constructor');
  }
 
  ngOnInit() {
-   console.log('CocheComponent ngOnInit');
+   console.log('RecetarioComponent ngOnInit');
  }
 
 

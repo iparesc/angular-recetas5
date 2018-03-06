@@ -11,7 +11,11 @@ export class RecetarioComponent implements OnInit {
 
   
   stock : Array<Recetario>;
-  receta1 : Recetario;
+  
+  @Output() eventoEmitir = new EventEmitter();
+
+  //coches seleccionados
+  receta1:Recetario;
   constructor( public recetasService:RecetasService ) {
 
     console.log('RecetarioComponent constructor');     
@@ -30,7 +34,21 @@ export class RecetarioComponent implements OnInit {
     this.stock = this.recetasService.getAll();   
 
   }
+  seleccionar( event, receta : Recetario ){
+    console.log('ListadoComponent Emitimos evento al ComponentePadre %o', receta );
+    this.eventoEmitir.emit(  //event con 2 parametros
+                              {
+                                 "receta": receta ,
+                                 "otroParametro" : 2018
+                              }
+                          );
 
-  
+     //actualizar receta seleccionada                           
+                         
+     this.receta1 = receta;                     
+  }
+ 
 
 }
+  
+

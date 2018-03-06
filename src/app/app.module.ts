@@ -7,7 +7,7 @@ import { AppRouter } from './app.route';
 
 //Services
 import { CochesService } from './providers/coches.service';
-
+import { RecetasService } from './providers/recetas.service';
 //Pipes
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -51,7 +51,8 @@ import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.
     FormsModule
   ],
   providers: [
-    CochesService
+    CochesService,
+    RecetasService
   ],
   bootstrap: [AppComponent]
 })
