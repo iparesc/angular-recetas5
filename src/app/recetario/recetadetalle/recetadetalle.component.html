@@ -1,10 +1,22 @@
-<div class="col-sm-6 col-md-4" >
+<div class="col-sm-6 col-md-12" >
 
 <div class="thumbnail">
    <img src="{{receta1.foto}}" alt="">
    <div class="caption">
        <h3>{{receta1.nombre}}</h3>
-            <p>{{receta1.descripcion}}</p>    
+            <p>{{receta1.descripcion}}</p>
+            <section class="ingredientes">
+                <h4 (click)="showIngredientes()">
+                  <span class="badge">{{receta1.ingredientes.length}}</span>  Ingredientes
+                  <span class="glyphicon {{glyphicon}}" aria-hidden="true"></span>  
+                </h4>
+                <ol *ngIf="show" class="lista">
+                  <li *ngFor="let ingred of receta1.ingredientes">
+                    {{ingred}}
+                  </li>
+          
+                </ol>
+              </section>
             <hr>
             <p>Calorias: {{receta1.calorias}}
                 

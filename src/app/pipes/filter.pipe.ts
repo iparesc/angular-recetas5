@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Coche } from '../model/coche';
 
+
 @Pipe({
   name: 'filter'
 })

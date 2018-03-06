@@ -12,24 +12,28 @@ export class RecetasService {
   }
 
   /** 
-   * Retorna todos los Coches que tenemos en Stock
+   * Retorna todos las Recetas que tenemos en Stock
   */
   getAll():Recetario[]{
-    console.log('CochesService getAll');
+    console.log('RecetarioService getAll');
     let recetas:Recetario[] = [];
     let receta;
+    
+    
     
     let jsonData = JSON.parse(MOCKS_RECETAS.stock);
 
     jsonData.forEach( element => {
+
+
       
         receta = new Recetario( 
                           element.nombre, 
                           element.foto, 
                           element.calorias,
                           element.likes,
-                          element.descripcion
-                         
+                          element.descripcion,
+                          element.ingredientes
                           );
 
         recetas.push(receta);

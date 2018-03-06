@@ -14,16 +14,19 @@ export class RecetarioComponent implements OnInit {
   
   @Output() eventoEmitir = new EventEmitter();
 
-  //coches seleccionados
+  //receta seleccionada
   receta1:Recetario;
+  //Criterio del buscador
+  searchText:string;
+ 
   constructor( public recetasService:RecetasService ) {
 
     console.log('RecetarioComponent constructor');     
 
-    this.receta1 = new Recetario('receta1','',4,5,'');
+    this.receta1 = new Recetario('receta1','',4,5,'',[]);
 
     this.stock = new Array<Recetario>();
-
+   
     
 
   }
@@ -47,7 +50,7 @@ export class RecetarioComponent implements OnInit {
                          
      this.receta1 = receta;                     
   }
- 
+  
 
 }
   

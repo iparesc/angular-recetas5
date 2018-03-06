@@ -1,6 +1,6 @@
-
+<input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Buscar Receta" aria-describedby="sizing-addon2">
 <div class="row">
-
+   
   <div class="col-md-2">
       <div class="panel panel-default">
               <div class="panel-heading">
@@ -8,7 +8,7 @@
               </div>
               
                 <ul class="list-group">
-                    <li *ngFor="let receta of stock" [class.active]="receta == receta1">
+                    <li class="list-group-item" *ngFor="let receta of stock | filtrar : searchText">
                         <a [class.active]="receta==receta1" (click)="seleccionar($event, receta)">{{receta.nombre}}</a>
                     </li>    
                   </ul>
@@ -23,17 +23,12 @@
       <div class="panel panel-default">
           <div class="panel-heading">
               <h3 class="panel-title">Detalle</h3>
-          </div>
-          <div class="input-group">
-              <span class="input-group-addon" id="sizing-addon2"></span>
-              <input type="text" class="form-control" placeholder="Buscar Receta" aria-describedby="sizing-addon2">
-            </div>
-            
+          </div>  
           <div class="panel-body">
               <!-- llamda componente Hijo -->
             <app-recetadetalle [receta1]="receta1"></app-recetadetalle>   
                 
-                
+                 
                
         
               

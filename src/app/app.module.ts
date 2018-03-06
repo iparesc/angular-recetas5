@@ -11,7 +11,7 @@ import { RecetasService } from './providers/recetas.service';
 //Pipes
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
-
+import { FiltrarRecetaPipe } from './pipes/filtrarReceta.pipe';
 //Componentes
 import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
@@ -24,6 +24,8 @@ import { CocheComponent } from './concesionario/coche/coche.component';
 import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.component';
+
+
 
 
 
@@ -43,7 +45,8 @@ import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.
     RoundPipe,
     FilterPipe,
     RecetarioComponent,
-    RecetadetalleComponent
+    RecetadetalleComponent,
+    FiltrarRecetaPipe
   ],
   imports: [
     BrowserModule,
