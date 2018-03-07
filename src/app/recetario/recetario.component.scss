@@ -3,3 +3,22 @@ input{
     padding-left: 10px;
     font-style: italic;
 }
+.thumnail{
+    position:relative;
+    .gluten{
+        position:absolute;
+        width: 45px;
+        height:45px;
+        right:10px;
+        top:10px;
+    }
+}
+.gluten{
+    position: absolute;
+   
+        right:0px;
+        top:0px;
+        max-width: 20px;
+        max-height: 20px;
+        z-index: 50;
+    }

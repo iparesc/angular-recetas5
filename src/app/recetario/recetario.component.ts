@@ -23,7 +23,7 @@ export class RecetarioComponent implements OnInit {
 
     console.log('RecetarioComponent constructor');     
 
-    this.receta1 = new Recetario('receta1','',4,5,'',[]);
+    this.receta1 = new Recetario('receta1','',4,5,'',false,[]);
 
     this.stock = new Array<Recetario>();
    

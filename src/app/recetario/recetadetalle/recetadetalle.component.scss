@@ -1,3 +1,44 @@
 .thumbnail img{
     height: 200px;
 }
+.thumnail{
+    position:relative;
+    .gluten{
+        position:absolute;
+        width: 45px;
+        height:45px;
+        right:10px;
+        top:10px;
+    }
+}
+
+
+.gluten{
+    position: absolute;
+   
+        right:0px;
+        top:0px;
+        max-width: 20px;
+        max-height: 20px;
+        z-index: 50;
+    }
+    
+
+.ingredientes{
+    h4{
+        text-align: center;
+        font-size: 1.2em;
+        padding:5px 0;
+        border-top:1px solid grey;
+        border-bottom:1px solid grey;
+        &:hover{
+            background-color:greenyellow;
+            cursor:pointer;
+        }
+    }
+    span.glyphicon{
+        float:right;
+        margin-right:10px;
+    }
+
+}

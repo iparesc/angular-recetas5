@@ -1,0 +1,52 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalReceta">
+  Crear Receta
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nueva Receta</h4>
+      </div>
+      <div class="modal-body">
+        <p>Valores: {{formulario.value|json}}</p>
+        <p>Estado: {{formulario.status|json}}</p>
+        <hr>
+        <form [formGroup]="formulario" (ngSubmit)="sumitar($event)" novalidate>
+          <div class="form-group form-inline">
+          <label for="nombre">Nombre:</label>
+
+          <input type="text" formControlName="nombre" placeholder="nombre">
+          
+          <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio minimo 2 letras</p>
+        </div>
+        <div class="form-group form-inline">
+            <label for="cocinero">Cocinero:</label>
+  
+            <input formControlName="cocinero" placeholder="cocinero">
+        </div>
+        <!--
+        <div class="form-group form-inline">
+            <label for="gluten">Gluten:</label>
+            <input type="radio" name="optradio"><label for="optradio">si</label><input type="radio" name="optradio"><label for="optradio">no</label>
+            
+        </div>
+      -->
+            
+             <!-- 
+          <div class="imagen">
+            <img src="foto" alt=""><br>
+            <label for="foto">Foto:</label>
+  
+            <input formControlName="foto" placeholder="url de la foto">
+
+          </div>
+           
+        -->
+          <input type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-block" value="crear">
+        </form>
+      </div>
+      

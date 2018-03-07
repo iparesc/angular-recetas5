@@ -1,6 +1,8 @@
 <div class="col-sm-6 col-md-12" >
 
 <div class="thumbnail">
+  <img class="gluten" *ngIf="receta1.gluten" src="assets/img/gluten_icon.png" alt="">
+  <img class="gluten" *ngIf="!receta1.gluten" src="assets/img/gluten_free_icon.png" alt="">
    <img src="{{receta1.foto}}" alt="">
    <div class="caption">
        <h3>{{receta1.nombre}}</h3>

@@ -6,7 +6,7 @@ import { element } from 'protractor';
 
 @Injectable()
 export class RecetasService {
-
+recetas:Recetario[];
   constructor() { 
     console.log('RecetasService constructor');
   }
@@ -16,7 +16,7 @@ export class RecetasService {
   */
   getAll():Recetario[]{
     console.log('RecetarioService getAll');
-    let recetas:Recetario[] = [];
+     this.recetas=[];
     let receta;
     
     
@@ -33,15 +33,23 @@ export class RecetasService {
                           element.calorias,
                           element.likes,
                           element.descripcion,
+                          element.gluten,
                           element.ingredientes
+                          
                           );
 
-        recetas.push(receta);
+        this.recetas.push(receta);
 
     });
 
-    return recetas;
+    return this.recetas;
   }
-
-
+/**
+ * Crear Nueva Receta
+ * @param receta 
+ */
+crear(receta:Recetario):void{
+  console.log('');
+this.recetas.unshift(receta);
+}
 }
