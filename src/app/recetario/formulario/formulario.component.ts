@@ -1,44 +1,128 @@
 import { Component, OnInit } from '@angular/core';
 import { RecetasService } from '../../providers/recetas.service';
-import { Recetario } from '../../model/recetario';
-import  {FormGroup,FormBuilder} from '@angular/forms';
+
+/* ****************************************** */
+/*   npm install --save-dev jquery            */
+/* ****************************************** */
 import * as $ from 'jquery';
-import { Validators } from '@angular/forms';
+
+import { Receta } from '../../model/receta';
+import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss']
 })
 export class FormularioComponent implements OnInit {
+
+
+  formulario : FormGroup;
+  ingredientes : FormArray;
   
-  formulario:FormGroup;
-
-  constructor( private fb:FormBuilder, public recetasService:RecetasService) { 
-console.log('Formulario Component constructor');
-this.crearFormulario();
-}
-  ngOnInit() {
+  constructor( private fb: FormBuilder, public recetasService : RecetasService ) {
+    console.log('FormularioComponent constructor');
+    this.crearFormulario();    
+    this.ingredientes = this.formulario.get('ingredientes') as FormArray;
   }
-crearFormulario():void{
-  console.log('FormularioComponet crear formulario');
 
-  this.formulario=this.fb.group({
-    //FormControl(input)=>['value',[Validaciones]]
-    nombre:['',[Validators.required, Validators.minLength(2)]],
-    cocinero:['',[Validators.minLength(5)]],
-   // gluten:['',[Validators.required]],
-    
-  });
+  ngOnInit() {
+    console.log('FormularioComponent ngOnInit');
+  }
 
-}
-sumitar():void{
-  console.log('FormularioComponent onSubmit');
-  //TODO recoger datos del formulario
-  let nombre =this.formulario.value.nombre;
-  let receta= new Recetario(nombre,'',4,4,'',true,[])//meter más cosas
-  this.recetasService.crear(receta);
-  $(".close").click();
-}
-//cerrar modal
+  crearFormulario():void{
+    console.log('FormularioComponent crearFormulario');
+    this.formulario = this.fb.group({
+      //FormControl(input) => ['value', [Validaciones] ]
+      nombre : ['', [Validators.required, Validators.minLength(2)] ],
+      cocinero : ['',[Validators.minLength(5)] ],
+      descripcion : ['', [Validators.required, Validators.minLength(100)] ],
+      gluten : [ "true" , Validators.required],
+      imagen : ['assets/imgs/receta_default.jpg', Validators.required],
+      ingredientes : this.fb.array([ this.createIngredienteFormGroup() ])
+    });
+  }
+
+  /** 
+   * Creamos un FormGroup para los Ingredientes
+   * */  
+  createIngredienteFormGroup(): FormGroup {
+    console.log('FormularioComponent createIngredienteFormGroup');
+    return this.fb.group({
+      nombre: ['', [Validators.required]]
+    });
+  }
+
+  /** 
+   * Evento para crear un nuevo Ingrediente
+  */
+  clickOtroIngrediente(){
+    console.log('FormularioComponent clickOtroIngrediente');    
+    this.ingredientes.push( this.createIngredienteFormGroup() );
+  }
+
+  clickEliminarIngrediente( index ){
+    console.log('FormularioComponent clickEliminarIngrediente');    
+    this.ingredientes.removeAt(index);
+  }
+
+  sumitar():void{
+    console.log('FormularioComponent onSubmit');
+
+    //recoger datos del formulario
+    let receta = this.mapearFormularioReceta(this.formulario);
+   
+    //llamar Servicio
+    this.recetasService.crear( receta );
+
+    //limpiar Formulario y poner un solo ingrediente
+    this.formulario.reset();
+    this.crearFormulario();
+    this.ingredientes.controls.splice(1);
+
+
+    //TODO cerrar modal    
+    //$("#modalReceta").modal('hide');
+    $("#btn-close").click();
+
+  }
+
+  /**
+   * Nos retorna las clases para darle estilos al div que contiene el input
+   * @param control : FormControl
+   */
+  estilosInput( control : FormControl ):string{
+
+    const CLASS_ERROR = "form-group has-error";
+    const CLASS_SUCCESS = "form-group has-success";
+
+    if ( control.dirty ){
+        return (control.valid)?CLASS_SUCCESS:CLASS_ERROR;
+    }else{
+      return "form-group";
+    }
+  }
+
+  /**
+   * Mapear Los datos del Formulario a una Receta
+   * @param form : FormGroup
+   */
+   mapearFormularioReceta( form : FormGroup ):Receta{
+      
+      let receta = new Receta(form.value.nombre);
+      receta.cocinero = form.value.cocinero;
+      receta.isGlutenFree = ( form.value.gluten === "true" )?false:true;
+      receta.imagen = form.value.imagen;
+      receta.descripcion = form.value.descripcion;
+
+      //recuperar los ingredientes
+      form.value.ingredientes.map(element => {
+        receta.addIngrediente( element.nombre );
+      });
+
+      return receta;
+   }
+
+
 
 }

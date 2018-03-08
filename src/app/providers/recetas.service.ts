@@ -1,55 +1,46 @@
 import { Injectable } from '@angular/core';
-import { Recetario } from '../model/recetario';
-import { MOCKS_RECETAS } from './mocks.recetas';
-import { element } from 'protractor';
-
+import { Receta } from '../model/receta';
+import { MOCK_RECETA } from './mocks.recetas';
 
 @Injectable()
 export class RecetasService {
-recetas:Recetario[];
+
+  recetas : Receta[];
+
   constructor() { 
     console.log('RecetasService constructor');
   }
 
-  /** 
-   * Retorna todos las Recetas que tenemos en Stock
-  */
-  getAll():Recetario[]{
-    console.log('RecetarioService getAll');
-     this.recetas=[];
+
+  getAll():Receta[]{
+    console.log('RecetasService getAll');
+    let jsonData = JSON.parse(MOCK_RECETA);
+    this.recetas = [];
     let receta;
-    
-    
-    
-    let jsonData = JSON.parse(MOCKS_RECETAS.stock);
 
-    jsonData.forEach( element => {
+    jsonData.forEach( el => {
+       receta = new Receta( el.nombre, el.cocinero);
+       receta.id = el.id;
+       receta.ingredientes = el.ingredientes;
+       receta.imagen = el.foto;
+       receta.likes = el.likes;
+       receta.cocinero = el.cocinero;
+       receta.descripcion = el.descripcion;
+       receta.isGlutenFree = el.isGlutenFree;
 
-
-      
-        receta = new Recetario( 
-                          element.nombre, 
-                          element.foto, 
-                          element.calorias,
-                          element.likes,
-                          element.descripcion,
-                          element.gluten,
-                          element.ingredientes
-                          
-                          );
-
-        this.recetas.push(receta);
-
+       this.recetas.push(receta);
     });
 
     return this.recetas;
   }
-/**
- * Crear Nueva Receta
- * @param receta 
- */
-crear(receta:Recetario):void{
-  console.log('');
-this.recetas.unshift(receta);
-}
+
+  /**
+   * Crear Nueva Receta
+   * @param receta : Receta nueva
+   */
+  crear( receta: Receta ):void{
+    console.log('RecetasService crear %o', receta );
+    this.recetas.unshift(receta);
+  }
+
 }

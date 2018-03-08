@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output,EventEmitter  } from '@angular/core';
-import { Recetario } from '../model/recetario';
+import { Component, OnInit } from '@angular/core';
+import { Receta } from '../model/receta';
 import { RecetasService } from '../providers/recetas.service';
 
 @Component({
@@ -9,48 +9,27 @@ import { RecetasService } from '../providers/recetas.service';
 })
 export class RecetarioComponent implements OnInit {
 
-  
-  stock : Array<Recetario>;
-  
-  @Output() eventoEmitir = new EventEmitter();
+  recetas : Receta[]; //Array<Receta>
+  recetaSelec : Receta;
+  glutenFilter : boolean;
 
-  //receta seleccionada
-  receta1:Recetario;
-  //Criterio del buscador
-  searchText:string;
- 
-  constructor( public recetasService:RecetasService ) {
-
-    console.log('RecetarioComponent constructor');     
-
-    this.receta1 = new Recetario('receta1','',4,5,'',false,[]);
-
-    this.stock = new Array<Recetario>();
-   
-    
-
+  constructor( public recetasService : RecetasService ) { 
+    console.log('RecetarioComponent constructor');
+    this.glutenFilter = false;
   }
 
-  //llamadas a los Services
   ngOnInit() {
-    console.log('RecetarioComponent ngOnInit');    
-    this.stock = this.recetasService.getAll();   
+    console.log('RecetarioComponent ngOnInit');
+    this.recetas = this.recetasService.getAll();
+
+    this.recetaSelec = this.recetas[0] || new Receta('Anonimo');
 
   }
-  seleccionar( event, receta : Recetario ){
-    console.log('ListadoComponent Emitimos evento al ComponentePadre %o', receta );
-    this.eventoEmitir.emit(  //event con 2 parametros
-                              {
-                                 "receta": receta ,
-                                 "otroParametro" : 2018
-                              }
-                          );
 
-     //actualizar receta seleccionada                           
-                         
-     this.receta1 = receta;                     
+  seleccionarReceta( receta : Receta ){
+    console.log('RecetarioComponent seleccionarReceta');
+    this.recetaSelec = receta;
   }
-  
 
 }
   

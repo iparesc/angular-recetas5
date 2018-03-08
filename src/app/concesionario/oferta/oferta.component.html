@@ -1,0 +1,59 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalCoche">
+  Crear Coche
+</button>
+    
+<!-- Modal -->
+<div class="modal fade" id="modalCoche" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" id="btn-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Nueva Receta</h4>
+      </div>
+      <div class="modal-body">
+          <p>Valores: {{ formulario.value | json }}</p>
+          <p>Estado:  {{ formulario.status | json }}</p> 
+          <hr>
+          <form [formGroup]="formulario" (ngSubmit)="sumitar($event)" novalidate >
+              
+              <div [ngClass]="estilosInput(formulario.controls.nombre)" >
+                  <label for="marca" class="control-label">*Marca:</label>
+                  <input id="marca" formControlName="marca" class="form-control" placeholder="Marca">
+                  <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio</p>
+              </div>
+              
+              <div [ngClass]="estilosInput(formulario.controls.cocinero)">
+                  <label for="modelo" class="control-label">Modelo:</label>
+                  <input id="modelo" formControlName="modelo" placeholder="Modelo" class="form-control">                
+                  <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched" class="text-danger">*Mínimo 5 letras</p>
+              </div> 
+              <div [ngClass]="estilosInput(formulario.controls.cocinero)">
+                <label for="version" class="control-label">Version:</label>
+                <input id="version" formControlName="version" placeholder="Version" class="form-control">                
+                <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched" class="text-danger">*Mínimo 5 letras</p>
+            </div> 
+               
+              
+            
+            
+              <div [ngClass]="estilosInput(formulario.controls.imagen)">                    
+                <img [src]="formulario.controls.imagen.value" alt="Imagen de la receta" class="img-responsive" > 
+                <label for="imagen" class="control-label">Foto:</label>
+                  <input id="imagen" formControlName="imagen" placeholder="url de la foto" class="form-control">
+                  <p *ngIf="formulario.controls.imagen.invalid && formulario.controls.imagen.touched" class="text-danger">*Obligatorio, dinos la url de la imagen</p>
+                  
+              </div> 
+           
+              
+          
+
+
+              <input type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-block" value="Crear">
+          </form>
+
+
+      </div>   
+  </div>
+</div>
+</div>

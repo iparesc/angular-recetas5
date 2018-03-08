@@ -1,7 +1,14 @@
-div.imagen{
-    float:right;
-    top:0px;
-img{
-    height: 200px;
+.ingrediente-input{
+    margin-bottom: 10px;
 }
+
+img{
+    width: 150px;
+    height: auto;
+}
+
+textarea{
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 200px;
 }

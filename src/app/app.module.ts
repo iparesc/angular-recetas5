@@ -11,7 +11,7 @@ import { RecetasService } from './providers/recetas.service';
 //Pipes
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
-import { FiltrarRecetaPipe } from './pipes/filtrarReceta.pipe';
+import { FilterRecetas } from './pipes/filter-recetas.pipe';
 //Componentes
 import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
@@ -23,8 +23,9 @@ import { ConcesionarioComponent } from './concesionario/concesionario.component'
 import { CocheComponent } from './concesionario/coche/coche.component';
 import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
-import { RecetadetalleComponent } from './recetario/recetadetalle/recetadetalle.component';
+import { DetalleComponent } from './recetario/detalle/detalle.component';
 import { FormularioComponent } from './recetario/formulario/formulario.component';
+import { OfertaComponent } from './concesionario/oferta/oferta.component';
 
 
 
@@ -46,9 +47,10 @@ import { FormularioComponent } from './recetario/formulario/formulario.component
     RoundPipe,
     FilterPipe,
     RecetarioComponent,
-    RecetadetalleComponent,
-    FiltrarRecetaPipe,
-    FormularioComponent
+    DetalleComponent,
+    FilterRecetas,
+    FormularioComponent,
+    OfertaComponent
   ],
   imports: [
     BrowserModule,

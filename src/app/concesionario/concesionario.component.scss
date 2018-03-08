@@ -1,11 +1,5 @@
-.catalogo{
-display:flex;
-    li{
-        list-style: none;
-        background-color: teal;
-        color:white;
-        padding:3px;
-        border:1px;
-
-    }
+.panel-list-coches{
+    padding: 0;
+    height: 50vh;
+    overflow-y: scroll;
 }
