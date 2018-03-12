@@ -21,12 +21,6 @@
       "completed": false
     },
     {
-      "id": 2,
-      "userId": 2,
-      "title": "aprender angular",
-      "completed": true
-    },
-    {
       "userId": 2,
       "title": "prueba desde postman",
       "completed": true,
@@ -49,12 +43,6 @@
       "title": "hacer la cena",
       "completed": false,
       "id": 6
-    },
-    {
-      "userId": 2,
-      "title": "hacer la cama",
-      "completed": false,
-      "id": 7
     }
   ],
   "profile": {
