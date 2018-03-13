@@ -11,6 +11,7 @@ import { ConcesionarioComponent } from './concesionario/concesionario.component'
 import {RecetarioComponent} from './recetario/recetario.component'
 import {PlantillaComponent} from './plantilla/plantilla.component'
 import { TodosComponent } from './todos/todos.component';
+import { FormBasicoComponent } from './form-basico/form-basico.component';
 //Rutas de nuestra App
 const appRoutes: Routes = [
     { path: '',           component: HomeComponent },
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     { path:'recetario',   component:RecetarioComponent},
 {path:'plantilla', component:PlantillaComponent},
 {path:'todos', component:TodosComponent},
+{path:'form-basico', component:FormBasicoComponent},
     { path: '**',           component: HomeComponent }
 
   ];

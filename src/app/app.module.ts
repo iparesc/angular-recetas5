@@ -30,6 +30,7 @@ import { OfertaComponent } from './concesionario/oferta/oferta.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { TodosComponent } from './todos/todos.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FormBasicoComponent } from './form-basico/form-basico.component';
 
 
 
@@ -55,7 +56,8 @@ import {HttpClientModule} from '@angular/common/http';
     FormularioComponent,
     OfertaComponent,
     PlantillaComponent,
-    TodosComponent
+    TodosComponent,
+    FormBasicoComponent
   ],
   imports: [
     BrowserModule,
