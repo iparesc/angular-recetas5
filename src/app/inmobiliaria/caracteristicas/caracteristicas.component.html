@@ -1,0 +1,34 @@
+
+<div class="row">
+    
+    <div class="col-sm-6 col-md-8">
+        <div class="thumbnail">
+          <img src="{{casa.foto}}" alt="{{casa.nombre}}">
+          <div class="caption">
+            
+              <span class="glyphicon glyphicon-home" aria-hidden="true">{{casa.nombre}}</span>
+              <br>
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true">{{casa.direccion}}</span>
+            
+            <span  class="glyphicon glyphicon-eur" aria-hidden="true" id="precio">{{casa.precio}}</span>
+            <span class="glyphicon glyphicon-bed" aria-hidden="true">{{casa.habitaciones}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-8">
+          <div class="thumbnail">
+            <h4>Servicios</h4>
+            <li *ngFor="let servicios of casa.servicio">
+            <input type="checkbox" [checked]="casa.servicios[1]" [(ngModel)]="bano" name="bano">
+        <label for="bano">{{servicio}}</label>
+</li>
+            </div>
+          </div>  
+  </div>
+ 
+
+
+
+
+
+ 

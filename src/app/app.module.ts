@@ -9,6 +9,7 @@ import { AppRouter } from './app.route';
 import { CochesService } from './providers/coches.service';
 import { RecetasService } from './providers/recetas.service';
 import {TodosService} from './providers/todos.service';
+import {CasasService} from './providers/casas.service'
 //Pipes
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -29,8 +30,10 @@ import { FormularioComponent } from './recetario/formulario/formulario.component
 import { OfertaComponent } from './concesionario/oferta/oferta.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { TodosComponent } from './todos/todos.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormBasicoComponent } from './form-basico/form-basico.component';
+import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
+import { CaracteristicasComponent } from './inmobiliaria/caracteristicas/caracteristicas.component';
 
 
 
@@ -57,7 +60,9 @@ import { FormBasicoComponent } from './form-basico/form-basico.component';
     OfertaComponent,
     PlantillaComponent,
     TodosComponent,
-    FormBasicoComponent
+    FormBasicoComponent,
+    InmobiliariaComponent,
+    CaracteristicasComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,8 @@ import { FormBasicoComponent } from './form-basico/form-basico.component';
     HttpClientModule,
     CochesService,
     RecetasService,
-    TodosService
+    TodosService,
+    CasasService
   ],
   bootstrap: [AppComponent]
 })

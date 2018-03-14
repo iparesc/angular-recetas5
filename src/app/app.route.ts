@@ -12,6 +12,7 @@ import {RecetarioComponent} from './recetario/recetario.component'
 import {PlantillaComponent} from './plantilla/plantilla.component'
 import { TodosComponent } from './todos/todos.component';
 import { FormBasicoComponent } from './form-basico/form-basico.component';
+import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
 //Rutas de nuestra App
 const appRoutes: Routes = [
     { path: '',           component: HomeComponent },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
 {path:'plantilla', component:PlantillaComponent},
 {path:'todos', component:TodosComponent},
 {path:'form-basico', component:FormBasicoComponent},
+{path:'inmobiliaria', component:InmobiliariaComponent},
     { path: '**',           component: HomeComponent }
 
   ];

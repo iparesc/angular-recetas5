@@ -1,0 +1,53 @@
+<div class="container" id="casas">
+
+
+  
+ 
+
+  <!-- Buscador de casas -->
+  <div class="input-group" id="buscadorCasas">   
+   <label>Filtro:</label> <input type="text" class="form-control" placeholder="Busca receta por nombre  direccion" [(ngModel)]="searchText">
+    <span class="input-group-addon glyphicon glyphicon-search"></span>
+  </div>
+
+
+  <div class="row">
+    <!-- Lista de recetas -->
+    <div id="listaCasas" class="col-md-6">
+      <h3>Casas:</h3>
+      <div class="list-group">
+        
+        <label for="alquilerFilter">Alquiler</label>
+        <input type="checkbox" [(ngModel)]="alquilerFilter" name="alquilerFilter">
+        <label for="ventaFilter">Venta</label>
+        <input type="checkbox" [(ngModel)]="ventaFilter" name="ventaFilter">
+        <br>
+        <label for="precioFilter">Precio:</label> <input type="text" placeholder="min"><input type="text" placeholder="max">
+
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <div class="thumbnail">
+                  <li *ngFor="let casa of casas"(click)="seleccionarCasa(casa)" >
+                <img src="{{casa.foto}}" alt="{{casa.nombre}}">
+                <div class="caption">
+                  <span>{{casa.nombre}}</span>
+                  <span id="precio">{{casa.precio}}€</span>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+       
+        
+    </div>
+    </div><!-- END #listaRecetas -->
+
+    <!-- Componente: RecetaDetalleComponent -->
+    <div id="caracteristicaCasaComp" class="col-md-6">
+       <app-caracteristicas [casa]="casaSelec"></app-caracteristicas>
+    </div>
+
+  </div><!-- END .row -->
+
+</div>
