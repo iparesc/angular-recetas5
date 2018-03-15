@@ -1,4 +1,4 @@
-<div class="container" id="casas">
+<div class="container">
 
 
   
@@ -6,7 +6,7 @@
 
   <!-- Buscador de casas -->
   <div class="input-group" id="buscadorCasas">   
-   <label>Filtro:</label> <input type="text" class="form-control" placeholder="Busca receta por nombre  direccion" [(ngModel)]="searchText">
+  <input [(ngModel)]="searchText" type="search" class="form-control" placeholder="Busca  por nombre  direccion" >
     <span class="input-group-addon glyphicon glyphicon-search"></span>
   </div>
 
@@ -23,12 +23,13 @@
         <input type="checkbox" [(ngModel)]="ventaFilter" name="ventaFilter">
         <br>
         <label for="precioFilter">Precio:</label> <input type="text" placeholder="min"><input type="text" placeholder="max">
-
+      
 
         <div class="row">
+            <li *ngFor="let casa of casas | filterCasa:searchText" (click)="seleccionarCasa(casa)">
             <div class="col-sm-6 col-md-6">
               <div class="thumbnail">
-                  <li *ngFor="let casa of casas"(click)="seleccionarCasa(casa)" >
+                 
                 <img src="{{casa.foto}}" alt="{{casa.nombre}}">
                 <div class="caption">
                   <span>{{casa.nombre}}</span>

@@ -34,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormBasicoComponent } from './form-basico/form-basico.component';
 import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
 import { CaracteristicasComponent } from './inmobiliaria/caracteristicas/caracteristicas.component';
+import { FilterCasa } from './pipes/filter-casa.pipe';
 
 
 
@@ -62,7 +63,8 @@ import { CaracteristicasComponent } from './inmobiliaria/caracteristicas/caracte
     TodosComponent,
     FormBasicoComponent,
     InmobiliariaComponent,
-    CaracteristicasComponent
+    CaracteristicasComponent,
+    FilterCasa
   ],
   imports: [
     BrowserModule,
