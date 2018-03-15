@@ -3,9 +3,8 @@ export class Servicios{
     nombre:string;
     disponible:boolean;
 
-    constructor(nombre:string, disponible:boolean){
+    constructor(){
         
-        this.nombre = nombre;
-        this.disponible = disponible;
+       
 }
 }

@@ -18,10 +18,11 @@
       <div class="col-sm-6 col-md-8">
           <div class="thumbnail">
             <h4>Servicios</h4>
-            <li *ngFor="let servicios of casa.servicio">
-            <input type="checkbox" [checked]="casa.servicios[1]" [(ngModel)]="bano" name="bano">
-        <label for="bano">{{servicio}}</label>
-</li>
+            <ul>
+              <li *ngFor="let servicio of casa.servicio">
+                <input type="checkbox" [checked]="servicio.disponible"> {{servicio.nombre}}
+              </li>
+            </ul>
             </div>
           </div>  
   </div>

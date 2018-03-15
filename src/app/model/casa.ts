@@ -1,4 +1,4 @@
-import{Servicios} from '../model/servicios'
+import{Servicios} from './servicios';
 
 export class Casa{
 
@@ -12,19 +12,8 @@ export class Casa{
     //caracteristicas
     servicio:Servicios[];
     
-    constructor(nombre:string, precio:number, alquiler:boolean, habitaciones:number, foto:string, direccion:string, servicio:Servicios[]){
-        this.id = -1;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.alquiler = alquiler;
-        this.habitaciones= habitaciones;
-        if ( foto ){
-            this.foto = foto;
-        }else{
-            this.foto = '';
-        }    
-        this.direccion = direccion;
-        this.servicio= servicio;
+    constructor(){
+       
         
     }
     

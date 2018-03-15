@@ -46,11 +46,18 @@ export class InmobiliariaComponent implements OnInit {
   mapeo( result : any ){
 
     let casa:Casa;
-    result.forEach(el => {
-        casa = new Casa( el.nombre, el.precio, el.alquiler, el.habitaciones, el.foto, el.direccion, el.servicios)
 
-        this.casas.push(casa);
-    });
+    result.forEach(el => {
+      casa = new Casa();
+      casa.nombre = el.nombre;
+      casa.precio = el.precio;
+      casa.alquiler = el.alquiler;
+      casa.habitaciones = el.habitaciones;
+      casa.foto = el.foto;
+      casa.direccion = el.direccion;
+      casa.servicio = el.servicios;
+      this.casas.push(casa);
+    })
 
   }
   seleccionarCasa( casa : Casa ){
